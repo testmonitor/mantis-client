@@ -2,8 +2,6 @@
 
 namespace TestMonitor\Mantis\Exceptions;
 
-use Exception;
-
 class UnauthorizedException extends Exception
 {
     /**
