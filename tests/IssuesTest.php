@@ -154,4 +154,32 @@ class IssuesTest extends TestCase
         $this->assertEquals($this->issue['id'], $issue->id);
         $this->assertEquals($this->issue['category']['name'], $issue->category);
     }
+
+    /** @test */
+    public function it_should_create_an_issue()
+    {
+        // Given
+        $mantis = new Client('url', 'token');
+
+        $mantis->setClient($service = Mockery::mock('\GuzzleHttp\Client'));
+
+        $service->shouldReceive('request')->once()->andReturn($response = Mockery::mock('Psr\Http\Message\ResponseInterface'));
+        $response->shouldReceive('getStatusCode')->andReturn(200);
+        $response->shouldReceive('getBody')->andReturn(json_encode(['issue' => $this->issue]));
+
+        // When
+        $issue = $mantis->createIssue(
+            new Issue(
+                $this->issue['summary'],
+                $this->issue['description'],
+                $this->issue['category']['name'],
+                $this->project['id']
+            )
+        );
+
+        // Then
+        $this->assertInstanceOf(Issue::class, $issue);
+        $this->assertEquals($this->issue['id'], $issue->id);
+        $this->assertEquals($this->issue['category']['name'], $issue->category);
+    }
 }
