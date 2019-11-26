@@ -3,7 +3,6 @@
 namespace TestMonitor\Mantis\Actions;
 
 use TestMonitor\Mantis\Resources\Issue;
-use TestMonitor\Mantis\Resources\Project;
 use TestMonitor\Mantis\Transforms\TransformsIssues;
 
 trait ManagesIssues
@@ -11,7 +10,9 @@ trait ManagesIssues
     use TransformsIssues;
 
     /**
-     * Get a list of of projects.
+     * Get a list of of issues.
+     *
+     * @param string $projectId
      *
      * @return Issue[]
      */
@@ -25,7 +26,7 @@ trait ManagesIssues
     }
 
     /**
-     * Get a single project.
+     * Get a single issue.
      *
      * @param string $id
      *

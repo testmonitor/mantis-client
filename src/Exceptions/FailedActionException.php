@@ -9,7 +9,7 @@ class FailedActionException extends Exception
     /**
      * Create a new exception instance.
      *
-     * @param $message
+     * @param string $message
      */
     public function __construct($message)
     {
