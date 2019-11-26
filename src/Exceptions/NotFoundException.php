@@ -6,7 +6,6 @@ class NotFoundException extends Exception
 {
     /**
      * Create a new exception instance.
-     *
      */
     public function __construct()
     {

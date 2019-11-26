@@ -6,7 +6,6 @@ use Mockery;
 use TestMonitor\Mantis\Client;
 use PHPUnit\Framework\TestCase;
 use TestMonitor\Mantis\Resources\Issue;
-use TestMonitor\Mantis\Resources\Project;
 use TestMonitor\Mantis\Exceptions\NotFoundException;
 use TestMonitor\Mantis\Exceptions\ValidationException;
 use TestMonitor\Mantis\Exceptions\FailedActionException;
