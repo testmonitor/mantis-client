@@ -6,6 +6,7 @@ use Mockery;
 use TestMonitor\Mantis\Client;
 use PHPUnit\Framework\TestCase;
 use TestMonitor\Mantis\Resources\Project;
+use TestMonitor\Mantis\Exceptions\Exception;
 use TestMonitor\Mantis\Exceptions\NotFoundException;
 use TestMonitor\Mantis\Exceptions\ValidationException;
 use TestMonitor\Mantis\Exceptions\FailedActionException;
@@ -54,6 +55,7 @@ class ProjectsTest extends TestCase
         $this->assertInstanceOf(Project::class, $projects[0]);
         $this->assertEquals($this->project['id'], $projects[0]->id);
         $this->assertEquals($this->project['categories'], $projects[0]->categories);
+        $this->assertIsArray($projects[0]->toArray());
     }
 
     /** @test */
@@ -123,6 +125,24 @@ class ProjectsTest extends TestCase
         $response->shouldReceive('getBody')->andReturn(json_encode(['message' => 'invalid']));
 
         $this->expectException(ValidationException::class);
+
+        // When
+        $mantis->projects();
+    }
+
+    /** @test */
+    public function it_should_throw_a_generic_exception_when_client_suddenly_becomes_a_teapot_while_a_getting_list_of_projects()
+    {
+        // Given
+        $mantis = new Client('url', 'token');
+
+        $mantis->setClient($service = Mockery::mock('\GuzzleHttp\Client'));
+
+        $service->shouldReceive('request')->once()->andReturn($response = Mockery::mock('Psr\Http\Message\ResponseInterface'));
+        $response->shouldReceive('getStatusCode')->andReturn(418);
+        $response->shouldReceive('getBody')->andReturn(json_encode(['rooibos' => 'anyone?']));
+
+        $this->expectException(Exception::class);
 
         // When
         $mantis->projects();

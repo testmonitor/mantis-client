@@ -103,40 +103,6 @@ class Client
     }
 
     /**
-     * Make a PUT request to Mantis servers and return the response.
-     *
-     * @param string $uri
-     * @param array $payload
-     *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
-     * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
-     * @throws \TestMonitor\Mantis\Exceptions\ValidationException
-     * @return mixed
-     */
-    protected function patch($uri, array $payload = [])
-    {
-        return $this->request('PATCH', $uri, $payload);
-    }
-
-    /**
-     * Make a DELETE request to Mantis servers and return the response.
-     *
-     * @param string $uri
-     * @param array $payload
-     *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
-     * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
-     * @throws \TestMonitor\Mantis\Exceptions\ValidationException
-     * @return mixed
-     */
-    protected function delete($uri, array $payload = [])
-    {
-        return $this->request('DELETE', $uri, $payload);
-    }
-
-    /**
      * Make request to Mantis servers and return the response.
      *
      * @param string $verb
