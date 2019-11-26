@@ -131,6 +131,29 @@ class ProjectsTest extends TestCase
     }
 
     /** @test */
+    public function it_should_return_an_error_message_when_client_provides_invalid_data_while_a_getting_list_of_projects()
+    {
+        // Given
+        $mantis = new Client('url', 'token');
+
+        $mantis->setClient($service = Mockery::mock('\GuzzleHttp\Client'));
+
+        $service->shouldReceive('request')->once()->andReturn($response = Mockery::mock('Psr\Http\Message\ResponseInterface'));
+        $response->shouldReceive('getStatusCode')->andReturn(422);
+        $response->shouldReceive('getBody')->andReturn(json_encode(['errors' => ['invalid']]));
+
+        // When
+        try {
+            $mantis->projects();
+        } catch (ValidationException $exception) {
+
+            // Then
+            $this->assertIsArray($exception->errors());
+            $this->assertEquals('invalid', $exception->errors()['errors'][0]);
+        }
+    }
+
+    /** @test */
     public function it_should_throw_a_generic_exception_when_client_suddenly_becomes_a_teapot_while_a_getting_list_of_projects()
     {
         // Given
