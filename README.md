@@ -5,7 +5,7 @@
 [![Travis Build](https://travis-ci.com/testmonitor/mantis-client.svg?branch=master)](https://travis-ci.com/testmonitor/mantis-client)
 [![Code Coverage](https://scrutinizer-ci.com/g/testmonitor/mantis-client/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/testmonitor/mantis-client/?branch=master)
 [![Code Quality](https://scrutinizer-ci.com/g/testmonitor/mantis-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/testmonitor/mantis-client/?branch=master)
-[![StyleCI](https://styleci.io/repos/223037397/shield)](https://styleci.io/repos/223037397)
+[![StyleCI](https://styleci.io/repos/223800227/shield)](https://styleci.io/repos/223800227)
 [![License](https://poser.pugx.org/testmonitor/mantis-client/license)](https://packagist.org/packages/testmonitor/mantis-client)
 
 This package provides a very basic, convenient, and unified wrapper for the [Mantis REST API](https://documenter.getpostman.com/view/29959/mantis-bug-tracker-rest-api/7Lt6zkP?version=latest). 
