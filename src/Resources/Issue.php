@@ -42,23 +42,14 @@ class Issue extends Resource
     /**
      * Create a new resource instance.
      *
-     * @param string $summary
-     * @param string $description
-     * @param string $category
-     * @param string $projectId
-     * @param string $id
+     * @param $attributes
      */
-    public function __construct(
-        string $summary,
-        string $description,
-        string $category,
-        string $projectId,
-        ?string $id = null
-    ) {
-        $this->id = $id;
-        $this->summary = $summary;
-        $this->description = $description;
-        $this->category = $category;
-        $this->projectId = $projectId;
+    public function __construct(array $attributes)
+    {
+        $this->id = $attributes['id'] ?? null;
+        $this->summary = $attributes['summary'];
+        $this->description = $attributes['description'];
+        $this->category = $attributes['category'];
+        $this->projectId = $attributes['projectId'] ?? null;
     }
 }

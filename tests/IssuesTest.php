@@ -169,12 +169,12 @@ class IssuesTest extends TestCase
 
         // When
         $issue = $mantis->createIssue(
-            new Issue(
-                $this->issue['summary'],
-                $this->issue['description'],
-                $this->issue['category']['name'],
-                $this->project['id']
-            )
+            new Issue([
+                'summary' => $this->issue['summary'],
+                'description' => $this->issue['description'],
+                'category' => $this->issue['category']['name'],
+            ]),
+            $this->project['id']
         );
 
         // Then

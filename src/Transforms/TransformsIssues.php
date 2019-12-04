@@ -8,10 +8,11 @@ trait TransformsIssues
 {
     /**
      * @param \TestMonitor\Mantis\Resources\Issue $issue
+     * @param string $projectId
      *
      * @return array
      */
-    protected function toMantisIssue(Issue $issue): array
+    protected function toMantisIssue(Issue $issue, $projectId = null): array
     {
         return [
             'summary' => $issue->summary,
@@ -20,7 +21,7 @@ trait TransformsIssues
                 'name' => $issue->category,
             ],
             'project' => [
-                'id' => $issue->projectId,
+                'id' => $projectId ?? $issue->projectId,
             ],
         ];
     }
@@ -32,12 +33,12 @@ trait TransformsIssues
      */
     protected function fromMantisIssue(array $issue): Issue
     {
-        return new Issue(
-            $issue['summary'] ?? '',
-            $issue['description'] ?? '',
-            $issue['category']['name'],
-            $issue['project']['id'],
-            $issue['id']
-        );
+        return new Issue([
+            'id' => $issue['id'],
+            'summary' => $issue['summary'] ?? '',
+            'description' => $issue['description'] ?? '',
+            'category' => $issue['category']['name'],
+            'projectId' => $issue['project']['id'],
+        ]);
     }
 }

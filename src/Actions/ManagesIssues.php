@@ -43,13 +43,14 @@ trait ManagesIssues
      * Create a new issue.
      *
      * @param \TestMonitor\Mantis\Resources\Issue $issue
+     * @param string $projectId
      *
      * @return Issue
      */
-    public function createIssue(Issue $issue)
+    public function createIssue(Issue $issue, $projectId)
     {
         $result = $this->post('issues', [
-            'json' => $this->toMantisIssue($issue),
+            'json' => $this->toMantisIssue($issue, $projectId),
         ]);
 
         return $this->fromMantisIssue($result['issue']);

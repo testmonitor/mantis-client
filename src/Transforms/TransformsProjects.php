@@ -13,12 +13,12 @@ trait TransformsProjects
      */
     protected function fromMantisProject(array $project): Project
     {
-        return new Project(
-            $project['id'],
-            $project['name'],
-            array_map(function ($category) {
+        return new Project([
+            'id' => $project['id'],
+            'name' => $project['name'],
+            'categories' => array_map(function ($category) {
                 return ['id' => $category['id'], 'name' => $category['name']];
-            }, $project['categories'] ?? [])
-        );
+            }, $project['categories'] ?? []),
+        ]);
     }
 }

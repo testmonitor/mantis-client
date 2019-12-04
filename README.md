@@ -56,12 +56,11 @@ $projects = $mantis->projects();
 Or creating an issue, for example (using category 'Bug' and project 1):
 
 ```php
-$issue = $mantis->createIssue(new \TestMonitor\Mantis\Resources\Issue(
-    'Some issue',
-    'A better description',
-    'Bug',
-    '1'
-));
+$issue = $mantis->createIssue(new \TestMonitor\Mantis\Resources\Issue([
+    'summary' => 'Some issue',
+    'description' => 'A better description',
+    'category' => 'Bug',
+]), '1');
 ```
 
 ## Tests
