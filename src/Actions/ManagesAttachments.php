@@ -18,7 +18,7 @@ trait ManagesAttachments
             'files' => [
                 [
                     'name' => basename($path),
-                    'content' => file_get_contents($path),
+                    'content' => base64_encode(file_get_contents($path)),
                 ],
             ],
         ]]);
