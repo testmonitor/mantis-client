@@ -51,13 +51,13 @@ class Client
     protected function client()
     {
         return $this->client ?? new GuzzleClient([
-                'base_uri' => "{$this->url}/api/rest/",
-                'headers' => [
-                    'Accept' => 'application/json',
-                    'Authorization' => $this->token,
-                    'Content-Type' => 'application/json',
-                ],
-            ]);
+            'base_uri' => "{$this->url}/api/rest/",
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => $this->token,
+                'Content-Type' => 'application/json',
+            ],
+        ]);
     }
 
     /**
