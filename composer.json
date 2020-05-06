@@ -42,12 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "TestMonitor\\": "src/"
+            "TestMonitor\\Mantis\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "TestMonitor\\Mantis\\Tests\\": "tests/"
         }
     },
     "scripts": {
