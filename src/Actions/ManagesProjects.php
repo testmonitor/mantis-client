@@ -2,6 +2,7 @@
 
 namespace TestMonitor\Mantis\Actions;
 
+use TestMonitor\Mantis\Validator;
 use TestMonitor\Mantis\Resources\Project;
 use TestMonitor\Mantis\Transforms\TransformsProjects;
 
@@ -18,6 +19,8 @@ trait ManagesProjects
     {
         $result = $this->get('projects');
 
+        Validator::isArray($result);
+
         return array_map(function ($project) {
             return $this->fromMantisProject($project);
         }, $result['projects']);
@@ -33,6 +36,8 @@ trait ManagesProjects
     public function project($id)
     {
         $result = $this->get("projects/{$id}");
+
+        Validator::isArray($result);
 
         return $this->fromMantisProject($result['projects'][0]);
     }
