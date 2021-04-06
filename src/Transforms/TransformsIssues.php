@@ -2,6 +2,7 @@
 
 namespace TestMonitor\Mantis\Transforms;
 
+use TestMonitor\Mantis\Validator;
 use TestMonitor\Mantis\Resources\Issue;
 
 trait TransformsIssues
@@ -33,6 +34,8 @@ trait TransformsIssues
      */
     protected function fromMantisIssue(array $issue): Issue
     {
+        Validator::keyExists($issue, 'id');
+
         return new Issue([
             'id' => $issue['id'],
             'summary' => $issue['summary'] ?? '',
