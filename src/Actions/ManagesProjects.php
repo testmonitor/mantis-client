@@ -32,6 +32,16 @@ trait ManagesProjects
      */
     public function project($id)
     {
+        if (! is_int($id)) {
+            $result = $this->projects();
+            foreach ($result as $project) {
+                if ($project->name == $id) {
+                    $id = $project->id;
+                    break;
+                }
+            }
+        }
+
         $result = $this->get("projects/{$id}");
 
         return $this->fromMantisProject($result['projects'][0]);
