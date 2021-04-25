@@ -26,23 +26,23 @@ trait ManagesProjects
     /**
      * Get a single project.
      *
-     * @param string $id
+     * @param int|string $identifier
      *
      * @return Project
      */
-    public function project($id)
+    public function project($identifier)
     {
-        if (! is_int($id)) {
+        if (! is_int($identifier)) {
             $result = $this->projects();
             foreach ($result as $project) {
-                if ($project->name == $id) {
-                    $id = $project->id;
+                if ($project->name == $identifier) {
+                    $identifier = $project->id;
                     break;
                 }
             }
         }
 
-        $result = $this->get("projects/{$id}");
+        $result = $this->get("projects/{$identifier}");
 
         return $this->fromMantisProject($result['projects'][0]);
     }
