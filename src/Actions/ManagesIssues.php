@@ -22,10 +22,10 @@ trait ManagesIssues
         $result = [];
         $page_nb = 1;
         do {
-            $result_page = $this->get('issues', ['query' => ['project_id' => $projectId,'page'=>$page_nb]]);
-            $result = array_merge_recursive($result,$result_page);
+            $result_page = $this->get('issues', ['query' => ['project_id' => $projectId, 'page'=>$page_nb]]);
+            $result = array_merge_recursive($result, $result_page);
             $page_nb++;
-        } while(!empty($result_page['issues']));
+        } while (! empty($result_page['issues']));
 
         Validator::isArray($result);
 
