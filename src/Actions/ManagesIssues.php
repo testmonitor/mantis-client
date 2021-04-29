@@ -19,7 +19,7 @@ trait ManagesIssues
      */
     public function issues($projectId)
     {
-        $result = $this->get('issues', ['project_id' => $projectId]);
+        $result = $this->get('issues', ['query' => ['project_id' => $projectId]]);
 
         Validator::isArray($result);
 
