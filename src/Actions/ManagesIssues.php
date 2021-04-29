@@ -23,8 +23,8 @@ trait ManagesIssues
 
         Validator::isArray($result);
 
-        return array_map(function ($project) {
-            return $this->fromMantisIssue($project);
+        return array_map(function ($issue) {
+            return $this->fromMantisIssue($issue);
         }, $result['issues']);
     }
 
