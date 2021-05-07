@@ -42,6 +42,7 @@ trait TransformsIssues
             'description' => $issue['description'] ?? '',
             'category' => $issue['category']['name'],
             'projectId' => $issue['project']['id'],
+            'reporter' => $issue['reporter'],
         ]);
     }
 }

@@ -40,6 +40,11 @@ class Issue extends Resource
     public $projectId;
 
     /**
+     * The issue reporter.
+     */
+    public $reporter;
+
+    /**
      * Create a new resource instance.
      *
      * @param $attributes
@@ -51,5 +56,6 @@ class Issue extends Resource
         $this->description = $attributes['description'];
         $this->category = $attributes['category'];
         $this->projectId = $attributes['projectId'] ?? null;
+        $this->reporter = new Reporter($attributes['reporter']);
     }
 }
