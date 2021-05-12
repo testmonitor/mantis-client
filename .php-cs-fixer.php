@@ -1,6 +1,10 @@
 <?php
 
-return PhpCsFixer\Config::create()
+$finder = (new PhpCsFixer\Finder())
+    ->exclude('vendor')
+    ->in(__DIR__);
+
+return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setUsingCache(true)
     ->setRules(array(
@@ -26,9 +30,4 @@ return PhpCsFixer\Config::create()
         'standardize_not_equals' => true,
         'ternary_to_null_coalescing' => true,
         'trailing_comma_in_multiline_array' => true,
-    ))
-    ->setFinder(
-        PhpCsFixer\Finder::create()
-            ->in(__DIR__)
-    )
-    ;
+    ));
