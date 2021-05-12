@@ -13,18 +13,25 @@ trait ManagesIssues
     /**
      * Get a list of of issues.
      *
-     * @param string $projectId
+     * @param int|null $projectId
+     * @param int $limit
+     * @param int $page
      *
      * @return Issue[]
+     * @throws \TestMonitor\Mantis\Exceptions\InvalidDataException
      */
-    public function issues($projectId)
+    public function issues(int $projectId = null, int $limit = 50, int $page = 1)
     {
-        $result = $this->get('issues', ['project_id' => $projectId]);
+        $result = $this->get('issues', array_filter(['query' => [
+            'project_id' => $projectId,
+            'page_size' => $limit,
+            'page' => $page,
+        ]]));
 
         Validator::isArray($result);
 
-        return array_map(function ($project) {
-            return $this->fromMantisIssue($project);
+        return array_map(function ($issue) {
+            return $this->fromMantisIssue($issue);
         }, $result['issues']);
     }
 
