@@ -17,8 +17,8 @@ trait ManagesIssues
      * @param int $limit
      * @param int $page
      *
-     * @return Issue[]
      * @throws \TestMonitor\Mantis\Exceptions\InvalidDataException
+     * @return Issue[]
      */
     public function issues(int $projectId = null, int $limit = 50, int $page = 1)
     {
