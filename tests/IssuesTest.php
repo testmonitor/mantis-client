@@ -29,6 +29,7 @@ class IssuesTest extends TestCase
             'description' => 'Description',
             'category' => ['id' => '1', 'name' => 'Category'],
             'project' => $this->project,
+            'reporter' => new \TestMonitor\Mantis\Resources\Reporter(['id' => '1', 'name' => 'Reporter', 'real_name' => 'My real name', 'email' => 'reporter@example.tld']),
         ];
     }
 
@@ -173,6 +174,7 @@ class IssuesTest extends TestCase
                 'summary' => $this->issue['summary'],
                 'description' => $this->issue['description'],
                 'category' => $this->issue['category']['name'],
+                'reporter' => $this->issue['reporter']->toArray(),
             ]),
             $this->project['id']
         );
