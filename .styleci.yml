@@ -3,6 +3,7 @@ preset: laravel
 enabled:
     - length_ordered_imports
     - concat_with_spaces
+    - phpdoc_unalign
 
 disabled:
     - alpha_ordered_imports
