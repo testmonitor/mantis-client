@@ -18,6 +18,7 @@ trait ManagesIssues
      * @param int $page
      *
      * @throws \TestMonitor\Mantis\Exceptions\InvalidDataException
+     *
      * @return Issue[]
      */
     public function issues(int $projectId = null, int $limit = 50, int $page = 1)
@@ -39,7 +40,6 @@ trait ManagesIssues
      * Get a single issue.
      *
      * @param string $id
-     *
      * @return Issue
      */
     public function issue($id)
@@ -56,7 +56,6 @@ trait ManagesIssues
      *
      * @param \TestMonitor\Mantis\Resources\Issue $issue
      * @param string $projectId
-     *
      * @return Issue
      */
     public function createIssue(Issue $issue, $projectId)

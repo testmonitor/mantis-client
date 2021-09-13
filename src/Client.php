@@ -72,12 +72,13 @@ class Client
      * Make a GET request to Mantis servers and return the response.
      *
      * @param string $uri
-     *
      * @param array $payload
+     *
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
      * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
      * @throws \TestMonitor\Mantis\Exceptions\ValidationException
+     *
      * @return mixed
      */
     protected function get($uri, array $payload = [])
@@ -95,6 +96,7 @@ class Client
      * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
      * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
      * @throws \TestMonitor\Mantis\Exceptions\ValidationException
+     *
      * @return mixed
      */
     protected function post($uri, array $payload = [])
@@ -113,6 +115,7 @@ class Client
      * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
      * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
      * @throws \TestMonitor\Mantis\Exceptions\ValidationException
+     *
      * @return mixed
      */
     protected function request($verb, $uri, array $payload = [])
@@ -139,6 +142,7 @@ class Client
      * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
      * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
      * @throws \Exception
+     *
      * @return void
      */
     protected function handleRequestError(ResponseInterface $response)

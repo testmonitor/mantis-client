@@ -10,7 +10,6 @@ trait TransformsIssues
     /**
      * @param \TestMonitor\Mantis\Resources\Issue $issue
      * @param string $projectId
-     *
      * @return array
      */
     protected function toMantisIssue(Issue $issue, $projectId = null): array
@@ -29,7 +28,6 @@ trait TransformsIssues
 
     /**
      * @param array $issue
-     *
      * @return \TestMonitor\Mantis\Resources\Issue
      */
     protected function fromMantisIssue(array $issue): Issue

@@ -9,7 +9,6 @@ trait ManagesAttachments
      *
      * @param string $path
      * @param string $issueId
-     *
      * @return string
      */
     public function addAttachment(string $path, string $issueId): string
