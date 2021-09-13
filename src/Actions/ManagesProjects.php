@@ -30,7 +30,6 @@ trait ManagesProjects
      * Get a single project.
      *
      * @param string $id
-     *
      * @return Project
      */
     public function project($id)

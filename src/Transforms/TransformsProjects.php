@@ -9,7 +9,6 @@ trait TransformsProjects
 {
     /**
      * @param array $project
-     *
      * @return \TestMonitor\Mantis\Resources\Project
      */
     protected function fromMantisProject(array $project): Project
