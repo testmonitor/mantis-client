@@ -52,6 +52,7 @@ class Client
     {
         return $this->client ?? new GuzzleClient([
             'base_uri' => "{$this->url}/api/rest/",
+            'http_errors' => false,
             'headers' => [
                 'Accept' => 'application/json',
                 'Authorization' => $this->token,
