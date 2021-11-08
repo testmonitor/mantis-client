@@ -62,7 +62,7 @@ class Client
     }
 
     /**
-     * @param $path
+     * @param string $path
      *
      * @return string
      */
@@ -70,6 +70,7 @@ class Client
     {
         return trim($this->url, '/') . $path;
     }
+
     /**
      * @param \GuzzleHttp\Client $client
      */
