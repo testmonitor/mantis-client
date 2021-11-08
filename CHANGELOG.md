@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Updated
 - Disable throwing exceptions by Guzzle
-- Fixed trailing slashes on base url
+- Fixed handling trailing slashes on connection url
 
 ## [1.2.0] - 2021-01-07
 ### Added
