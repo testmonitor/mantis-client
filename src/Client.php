@@ -51,7 +51,7 @@ class Client
     protected function client()
     {
         return $this->client ?? new GuzzleClient([
-            'base_uri' => $this->baseUrl("/api/rest/"),
+            'base_uri' => $this->baseUrl('/api/rest/'),
             'http_errors' => false,
             'headers' => [
                 'Accept' => 'application/json',
@@ -63,7 +63,6 @@ class Client
 
     /**
      * @param string $path
-     *
      * @return string
      */
     protected function baseUrl($path)
