@@ -39,7 +39,7 @@ class Client
      */
     public function __construct(string $url, string $token)
     {
-        $this->url = $url;
+        $this->url = trim($url, '/');
         $this->token = $token;
     }
 
