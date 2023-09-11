@@ -147,7 +147,6 @@ class ProjectsTest extends TestCase
         try {
             $mantis->projects();
         } catch (ValidationException $exception) {
-
             // Then
             $this->assertIsArray($exception->errors());
             $this->assertEquals('invalid', $exception->errors()['errors'][0]);
