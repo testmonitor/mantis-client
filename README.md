@@ -2,13 +2,13 @@
 
 [![Latest Stable Version](https://poser.pugx.org/testmonitor/mantis-client/v/stable)](https://packagist.org/packages/testmonitor/mantis-client)
 [![CircleCI](https://img.shields.io/circleci/project/github/testmonitor/mantis-client.svg)](https://circleci.com/gh/testmonitor/mantis-client)
-[![Travis Build](https://travis-ci.com/testmonitor/mantis-client.svg?branch=master)](https://travis-ci.com/testmonitor/mantis-client)
+[![Travis Build](https://travis-ci.com/testmonitor/mantis-client.svg?branch=master)](https://app.travis-ci.com/github/mantis-client)
 [![Code Coverage](https://scrutinizer-ci.com/g/testmonitor/mantis-client/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/testmonitor/mantis-client/?branch=master)
 [![Code Quality](https://scrutinizer-ci.com/g/testmonitor/mantis-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/testmonitor/mantis-client/?branch=master)
 [![StyleCI](https://styleci.io/repos/223800227/shield)](https://styleci.io/repos/223800227)
 [![License](https://poser.pugx.org/testmonitor/mantis-client/license)](https://packagist.org/packages/testmonitor/mantis-client)
 
-This package provides a very basic, convenient, and unified wrapper for the [Mantis REST API](https://documenter.getpostman.com/view/29959/mantis-bug-tracker-rest-api/7Lt6zkP?version=latest). 
+This package provides a very basic, convenient, and unified wrapper for the [Mantis REST API](https://documenter.getpostman.com/view/29959/mantis-bug-tracker-rest-api/7Lt6zkP?version=latest).
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ This package provides a very basic, convenient, and unified wrapper for the [Man
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [License](#license)
-  
+
 ## Installation
 
 To install the client you need to require the package using composer:
@@ -43,7 +43,7 @@ You'll have to instantiate the client using your credentials:
 $mantis = new \TestMonitor\Mantis\Client('https://instance-name.mantishub.io', 'REST token');
 ```
 
-Next, you can start interacting with Mantis. 
+Next, you can start interacting with Mantis.
 
 ## Examples
 
@@ -68,7 +68,7 @@ $issue = $mantis->createIssue(new \TestMonitor\Mantis\Resources\Issue([
 The package contains integration tests. You can run them using PHPUnit.
 
     $ vendor/bin/phpunit
-    
+
 ## Changelog
 
 Refer to [CHANGELOG](CHANGELOG.md) for more information.
