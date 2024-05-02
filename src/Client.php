@@ -150,6 +150,7 @@ class Client
      *
      * @throws \TestMonitor\Mantis\Exceptions\ValidationException
      * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
+     * @throws \TestMonitor\Mantis\Exceptions\UnauthorizedException
      * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
      * @throws \Exception
      *
@@ -162,15 +163,15 @@ class Client
         }
 
         if ($response->getStatusCode() == 404) {
-            throw new NotFoundException();
+            throw new NotFoundException((string) $response->getBody(), $response->getStatusCode());
         }
 
         if ($response->getStatusCode() == 401 || $response->getStatusCode() == 403) {
-            throw new UnauthorizedException();
+            throw new UnauthorizedException((string) $response->getBody(), $response->getStatusCode());
         }
 
         if ($response->getStatusCode() == 400) {
-            throw new FailedActionException((string) $response->getBody());
+            throw new FailedActionException((string) $response->getBody(), $response->getStatusCode());
         }
 
         throw new Exception((string) $response->getStatusCode());
