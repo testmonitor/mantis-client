@@ -150,6 +150,7 @@ class Client
      *
      * @throws \TestMonitor\Mantis\Exceptions\ValidationException
      * @throws \TestMonitor\Mantis\Exceptions\NotFoundException
+     * @throws \TestMonitor\Mantis\Exceptions\UnauthorizedException
      * @throws \TestMonitor\Mantis\Exceptions\FailedActionException
      * @throws \Exception
      *
@@ -173,6 +174,6 @@ class Client
             throw new FailedActionException((string) $response->getBody(), $response->getStatusCode());
         }
 
-        throw new Exception((string) $response->getBody(), $response->getStatusCode());
+        throw new Exception((string) $response->getStatusCode());
     }
 }
