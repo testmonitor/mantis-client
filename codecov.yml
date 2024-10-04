@@ -1,5 +1,5 @@
 codecov:
-  branch: main
+  branch: master
 coverage:
   precision: 2
   range: "60...80"
@@ -18,4 +18,3 @@ coverage:
         threshold: 5
         # advanced
         informational: true
-
