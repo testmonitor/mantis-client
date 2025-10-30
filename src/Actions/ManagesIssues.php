@@ -21,7 +21,7 @@ trait ManagesIssues
      *
      * @return Issue[]
      */
-    public function issues(int $projectId = null, int $limit = 50, int $page = 1)
+    public function issues(?int $projectId = null, int $limit = 50, int $page = 1)
     {
         $result = $this->get('issues', array_filter(['query' => [
             'project_id' => $projectId,
